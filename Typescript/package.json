@@ -1,0 +1,23 @@
+{
+  "name": "hycon-genesis",
+  "version": "1.0.0",
+  "description": "하이콘 제네시스 샘플",
+  "main": "index.js",
+  "scripts": {
+    "sample": "./node_modules/.bin/ts-node ./src/index.ts",
+    "protogen": "pbjs -t static-module -w commonjs -o ./src/proto.js ../genesis.proto &&  pbts -o ./src/proto.d.ts ./src/proto.js",
+    "start": "npm run sample"
+  },
+  "author": "Glosfer",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^8.5.5",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "blake2b": "^2.1.2",
+    "merkle-lib": "^2.0.10",
+    "protobufjs": "^6.8.3"
+  }
+}

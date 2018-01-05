@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_package = "io.hycon";
+option java_outer_classname = "GenesisProto";
+message Block {
+    BlockHeader header = 1;
+    reserved 2;
+    repeated Tx txs = 3;
+}
+
+message BlockHeader {
+    reserved 1;
+    bytes merkleRoot = 2; //Hash
+    bytes stateRoot = 3; //Hash
+    int32 difficulty = 4;
+    int64 timeStamp = 5; 
+    reserved 6;
+}
+
+message Tx {
+  bytes from = 1; //Address
+  bytes to = 2; //Address
+  int64 amount = 3;
+  int64 fee = 4;
+  reserved 5;
+  bytes signature = 6;
+  bool recovery = 7;
+}
